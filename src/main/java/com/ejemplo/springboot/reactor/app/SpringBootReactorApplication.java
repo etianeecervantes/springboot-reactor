@@ -33,7 +33,7 @@ public class SpringBootReactorApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		ejemploZipWithRangos();
+		ejemploContraPresion();
 	}
 	
 	public void ejemploContraPresion() {
@@ -60,7 +60,6 @@ public class SpringBootReactorApplication implements CommandLineRunner {
 				consumido++;
 				if(consumido == limite) {
 					consumido = 0;
-					s.request(limite);
 				}
 			}
 
@@ -89,7 +88,7 @@ public class SpringBootReactorApplication implements CommandLineRunner {
 				public void run() {
 					emitter.next(++contador);
 					if (contador == 10) {
-						timer.cancel();
+						timer.cancel(); 
 						emitter.complete();
 					}
 
